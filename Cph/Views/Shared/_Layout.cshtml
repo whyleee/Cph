@@ -1,18 +1,41 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>CPH</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     @Styles.Render("~/bundles/css")
-</head>
-<body>
-    <header></header>
-    @RenderBody()
-    <footer>© 2013 Creuna CPH</footer>
+  </head>
+  <body>
+    <header class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">CPH</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="#">Teams</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Tech</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main id="content" class="container">
+      @RenderBody()
+    </main>
+    <footer class="container" role="contentinfo">
+      <hr>© 2013 Creuna CPH
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/js")
     @RenderSection("scripts", required: false)
-</body>
+  </body>
 </html>

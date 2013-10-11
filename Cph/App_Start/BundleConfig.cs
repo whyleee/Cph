@@ -18,11 +18,13 @@ namespace Cph
             // js
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                 "~/js/jquery.unobtrusive*",
-                "~/js/jquery.validate*"
+                "~/js/jquery.validate*",
+                "~/js/bootstrap.js"
             ));
 
             // css
             bundles.Add(new StyleBundle("~/bundles/css").Include(
+                "~/css/bootstrap/bootstrap.css",
                 "~/css/site.css"
             ));
         }
