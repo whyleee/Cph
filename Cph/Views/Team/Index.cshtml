@@ -1,0 +1,24 @@
+﻿@model Cph.Models.TeamListModel
+
+<h1>CPH Alpha Team</h1>
+<div class="row">
+    @foreach(var member in Model.Members)
+    {
+        <div class="col-md-4 col-sm-6 col-xs-12 team-member">
+            <img class="img-responsive" src="@member.Photo?w=340&h=193&mode=crop" width="340" />
+            <h2>@member.FullName</h2>
+            <h4 class="mate-position">@member.Position</h4>
+            <ul class="list-inline">
+                <li><a href="mailto:@member.Email"><i class="icon-envelope icon-2x"></i></a></li>
+                @foreach (var link in member.SocialLinks)
+                {
+                    <li>
+                        <a href="@link.Url" target="_blank">
+                            <i class="@link.Service.ToSocialIconClass() icon-2x" title="@link.Service.Name"></i>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>

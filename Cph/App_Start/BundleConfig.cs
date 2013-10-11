@@ -25,6 +25,7 @@ namespace Cph
             // css
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                 "~/css/bootstrap/bootstrap.css",
+                "~/css/font-awesome/font-awesome.css",
                 "~/css/site.css"
             ));
         }

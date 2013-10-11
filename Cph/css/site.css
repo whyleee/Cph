@@ -1,3 +1,23 @@
-﻿#content {
-  min-height: 600px;
+﻿/* Common */
+h1 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 50px;
+}
+
+#content {
+    min-height: 600px;
+}
+
+a:hover [class^="icon-"],
+a:hover [class*=" icon-"] {
+    text-decoration: none;
+}
+
+/* Team page */
+.team-member {
+    margin-bottom: 60px;
+}
+.team-member .mate-position {
+    font-style: italic;
 }
