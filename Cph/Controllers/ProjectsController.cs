@@ -34,6 +34,32 @@ namespace Cph.Controllers
             return View(project);
         }
 
+        public ActionResult Edit(string name)
+        {
+            var project = db.Projects.FirstOrDefault(p => p.Name.ToLower() == name.ToLower());
+
+            if (project == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(project);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Project project)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(project).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Details", new {name = project.Name});
+            }
+
+            return View(project);
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

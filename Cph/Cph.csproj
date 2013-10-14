@@ -129,6 +129,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aids\FormattedDateTimeModelBinder.cs" />
     <Compile Include="Aids\MvcExtensions.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -152,6 +153,7 @@
   <ItemGroup>
     <Content Include="css\bootstrap\bootstrap.css" />
     <Content Include="css\bootstrap\bootstrap.min.css" />
+    <Content Include="css\bootstrap\datepicker.css" />
     <Content Include="css\font-awesome\font-awesome.css" />
     <Content Include="css\font-awesome\font-awesome.min.css" />
     <Content Include="css\fonts\fontawesome-webfont.svg" />
@@ -167,6 +169,8 @@
     <Content Include="css\fonts\fontawesome-webfont.woff" />
     <Content Include="css\fonts\FontAwesome.otf" />
     <None Include="js\jquery-2.0.3.intellisense.js" />
+    <Content Include="js\app.js" />
+    <Content Include="js\bootstrap-datepicker.js" />
     <Content Include="js\jquery-2.0.3.js" />
     <Content Include="js\jquery-2.0.3.min.js" />
     <Content Include="js\jquery-2.0.3.min.map" />
@@ -180,6 +184,8 @@
     <Content Include="js\_references.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\moment.js" />
+    <Content Include="js\moment.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -190,6 +196,7 @@
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Projects\Details.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Member.cshtml" />
+    <Content Include="Views\Projects\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

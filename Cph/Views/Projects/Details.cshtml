@@ -4,7 +4,8 @@
     ViewBag.Title = Model.Name;
 }
 <hgroup class="page-header">
-    <h1>@Model.Name</h1>
+    <h1 class="header-inline">@Model.Name</h1>
+    @Html.ActionLink("Edit", "Edit", new {name = Model.Name}, new {@class = "header-action-link"})
     <h4>@Model.Description</h4>
 </hgroup>
 <h3>Dev Team</h3>

@@ -19,12 +19,16 @@ namespace Cph
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                 "~/js/jquery.unobtrusive*",
                 "~/js/jquery.validate*",
-                "~/js/bootstrap.js"
+                "~/js/bootstrap.js",
+                "~/js/bootstrap-datepicker.js",
+                "~/js/moment.js",
+                "~/js/app.js"
             ));
 
             // css
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                 "~/css/bootstrap/bootstrap.css",
+                "~/css/bootstrap/datepicker.css",
                 "~/css/font-awesome/font-awesome.css",
                 "~/css/site.css"
             ));

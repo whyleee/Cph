@@ -2,17 +2,30 @@
 h1 {
     font-size: 50px;
 }
+
+a:hover [class^="icon-"],
+a:hover [class*=" icon-"] {
+    text-decoration: none;
+}
+
 .page-header {
     margin-bottom: 40px;
+}
+
+.header-inline {
+    display: inline-block;
+    margin: 0;
 }
 
 #content {
     min-height: 600px;
 }
 
-a:hover [class^="icon-"],
-a:hover [class*=" icon-"] {
-    text-decoration: none;
+.header-action-link {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 5px;
+    margin-left: 10px;
 }
 
 /* Team page */

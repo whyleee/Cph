@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Cph.Aids;
 using Cph.Data;
 
 namespace Cph
@@ -21,6 +22,9 @@ namespace Cph
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             Database.SetInitializer(new DataCreator());
+
+            ModelBinders.Binders.Add(typeof(DateTime), new FormattedDateTimeModelBinder());
+            ModelBinders.Binders.Add(typeof(DateTime?), new FormattedDateTimeModelBinder());
         }
     }
 }
