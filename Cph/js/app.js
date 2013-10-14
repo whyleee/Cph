@@ -29,4 +29,9 @@
         if (this.optional(element)) return true;
         return moment(value, 'DD/MM/YYYY').isValid();
     });
+
+    // markdown editor
+    $('.markdown').pagedownBootstrap({
+        preview: '.markdown-preview'
+    });
 })(jQuery);

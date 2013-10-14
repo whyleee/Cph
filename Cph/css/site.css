@@ -8,6 +8,14 @@ a:hover [class*=" icon-"] {
     text-decoration: none;
 }
 
+.wmd-panel .btn [class^="icon-"],
+.wmd-panel .btn [class*=" icon-"] {
+    font-size: 1.2em;
+}
+.wmd-panel .btn .glyphicon {
+    font-size: 1em;
+}
+
 .page-header {
     margin-bottom: 40px;
 }
@@ -39,4 +47,9 @@ a:hover [class*=" icon-"] {
     position: relative;
     top: -2px;
     font-size: 1.8em;
+}
+
+/* Project page */
+.page-header-project {
+    margin-bottom: 0;
 }

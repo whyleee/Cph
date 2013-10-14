@@ -1,13 +1,18 @@
-﻿@model Cph.Data.Project
+﻿@using Newtonsoft.Json
+@model Cph.Data.Project
 
 @{
     ViewBag.Title = Model.Name;
 }
-<hgroup class="page-header">
+<hgroup class="page-header page-header-project">
     <h1 class="header-inline">@Model.Name</h1>
     @Html.ActionLink("Edit", "Edit", new {name = Model.Name}, new {@class = "header-action-link"})
     <h4>@Model.Description</h4>
 </hgroup>
+<div class="row">
+    <div id="project-info" class="col-md-12"></div>
+</div>
+<hr />
 <h3>Dev Team</h3>
 <div class="row">
     @foreach (var member in Model.DevTeam)
@@ -15,6 +20,7 @@
         @Html.DisplayFor(m => member)
     }
 </div>
+<hr />
 <h3>Service Team</h3>
 <div class="row">
     @foreach (var member in Model.ServiceTeam)
@@ -22,3 +28,10 @@
         @Html.DisplayFor(m => member)
     }
 </div>
+@section scripts{
+    <script>
+        var md = new Markdown.Converter();
+        var html = md.makeHtml(@Html.Raw(JsonConvert.SerializeObject(Model.Info)));
+        $('#project-info').html(html);
+    </script>
+}

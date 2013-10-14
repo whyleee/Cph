@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Cph.Data
 {
@@ -28,6 +29,7 @@ namespace Cph.Data
         public string TopImage { get; set; }
 
         [DataType(DataType.MultilineText)]
+        [AllowHtml]
         public string Info { get; set; }
 
         public virtual ICollection<Member> DevTeam { get; set; }

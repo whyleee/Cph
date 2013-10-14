@@ -21,6 +21,8 @@ namespace Cph
                 "~/js/jquery.validate*",
                 "~/js/bootstrap.js",
                 "~/js/bootstrap-datepicker.js",
+                "~/js/Markdown.*",
+                "~/js/jquery.pagedown-bootstrap.js",
                 "~/js/moment.js",
                 "~/js/app.js"
             ));
@@ -30,6 +32,7 @@ namespace Cph
                 "~/css/bootstrap/bootstrap.css",
                 "~/css/bootstrap/datepicker.css",
                 "~/css/font-awesome/font-awesome.css",
+                "~/css/jquery.pagedown-bootstrap.css",
                 "~/css/site.css"
             ));
         }
