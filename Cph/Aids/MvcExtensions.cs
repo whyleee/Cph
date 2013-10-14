@@ -11,13 +11,14 @@ namespace Cph.Aids
 {
     public static class MvcExtensions
     {
-        public static IHtmlString MenuLink(this HtmlHelper html, string linkText, [AspMvcAction] string actionName, [AspMvcController] string controllerName)
+        public static IHtmlString MenuItem(this HtmlHelper html, string linkText, [AspMvcAction] string actionName, [AspMvcController] string controllerName)
         {
             var currentAction = html.ViewContext.RouteData.GetRequiredString("action");
             var currentController = html.ViewContext.RouteData.GetRequiredString("controller");
-            var active = actionName == currentAction && controllerName == currentController;
-            
-            return html.ActionLink(linkText, actionName, controllerName, null, active ? new {@class = "active"} : null);
+            var active = /*actionName == currentAction &&*/ controllerName == currentController;
+
+            var li = active ? "<li class=\"active\">" : "<li>";
+            return new HtmlString(li + html.ActionLink(linkText, actionName, controllerName) + "</li>");
         }
 
         public static string ToSocialIconClass(this SocialService service)

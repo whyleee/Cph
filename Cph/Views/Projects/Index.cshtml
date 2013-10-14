@@ -1,0 +1,16 @@
+﻿@model  Cph.Models.ProjectListModel
+
+@{
+    ViewBag.Title = "Projects";
+}
+<h1 class="page-header">Projects</h1>
+<ul>
+    @foreach (var project in Model.Projects)
+    {
+        <li>
+            <h2>@project.Name</h2>
+            <h4>@project.Description</h4>
+            @Html.ActionLink("Details", "Details", new {name = project.Name})
+        </li>
+    }
+</ul>

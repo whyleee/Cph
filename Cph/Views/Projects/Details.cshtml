@@ -1,0 +1,23 @@
+﻿@model Cph.Data.Project
+
+@{
+    ViewBag.Title = Model.Name;
+}
+<hgroup class="page-header">
+    <h1>@Model.Name</h1>
+    <h4>@Model.Description</h4>
+</hgroup>
+<h3>Dev Team</h3>
+<div class="row">
+    @foreach (var member in Model.DevTeam)
+    {
+        @Html.DisplayFor(m => member)
+    }
+</div>
+<h3>Service Team</h3>
+<div class="row">
+    @foreach (var member in Model.ServiceTeam)
+    {
+        @Html.DisplayFor(m => member)
+    }
+</div>

@@ -4,22 +4,24 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Cph.Data;
-using Cph.Models;
 
 namespace Cph.Controllers
 {
     public class TeamController : Controller
     {
+        private readonly CphDb db = new CphDb();
+
         public ActionResult Index()
         {
-            var model = new TeamListModel();
+            var team = db.Teams.First(t => t.Name == "CPH Alpha Team");
 
-            using (var db = new CphDb())
-            {
-                model.Members = db.Members.Include("SocialLinks.Service").ToList();
-            }
+            return View(team);
+        }
 
-            return View(model);
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

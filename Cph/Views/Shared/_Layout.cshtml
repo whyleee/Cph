@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
-        <title>CPH</title>
+        <title>@ViewBag.Title - CPH</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         @Styles.Render("~/bundles/css")
     </head>
@@ -20,10 +20,10 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li>@Html.MenuLink("Home", "Index", "Home")</li>
-                        <li>@Html.MenuLink("Team", "Index", "Team")</li>
-                        <li>@Html.MenuLink("Projects", "Index", "Project")</li>
-                        <li>@Html.MenuLink("Tech", "Index", "Tech")</li>
+                        @Html.MenuItem("Home", "Index", "Home")
+                        @Html.MenuItem("Team", "Index", "Team")
+                        @Html.MenuItem("Projects", "Index", "Projects")
+                        @Html.MenuItem("Tech", "Index", "Tech")
                     </ul>
                 </div>
             </div>

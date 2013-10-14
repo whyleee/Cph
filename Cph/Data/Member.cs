@@ -14,6 +14,12 @@ namespace Cph.Data
 
         public string Photo { get; set; }
 
+        public virtual Team Team { get; set; }
+
         public virtual ICollection<SocialLink> SocialLinks { get; set; }
+
+        public virtual ICollection<Project> DevProjects { get; set; }
+
+        public virtual ICollection<Project> ServiceProjects { get; set; }
     }
 }

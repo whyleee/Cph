@@ -6,8 +6,8 @@ using Cph.Data;
 
 namespace Cph.Models
 {
-    public class TeamListModel
+    public class ProjectListModel
     {
-        public IList<Member> Members { get; set; }
+        public IList<Project> Projects { get; set; }
     }
 }
