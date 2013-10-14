@@ -21,3 +21,8 @@ a:hover [class*=" icon-"] {
 .team-member .mate-position {
     font-style: italic;
 }
+.team-member .icon-stackexchange {
+    position: relative;
+    top: -2px;
+    font-size: 1.8em;
+}

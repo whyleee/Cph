@@ -24,6 +24,7 @@ namespace Cph.Aids
         {
             var serviceName = service.Name.ToLower();
             if (serviceName == "google") serviceName = "google-plus";
+            if (serviceName == "stackoverflow") return "icon-stackexchange";
             return "icon-" + serviceName + "-sign";
         }
     }

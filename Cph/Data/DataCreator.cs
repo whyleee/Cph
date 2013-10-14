@@ -44,6 +44,10 @@ namespace Cph.Data
                     {
                         Name = "Bitbucket"
                     };
+                var stackoverflow = new SocialService
+                    {
+                        Name = "StackOverflow"
+                    };
 
                 // members
                 var eugene = new Member
@@ -59,7 +63,8 @@ namespace Cph.Data
                                 new SocialLink {Service = google, Url = "https://plus.google.com/105449892652130958782/"},
                                 new SocialLink {Service = linkedin, Url = "http://www.linkedin.com/in/eugenekuzmin"},
                                 new SocialLink {Service = github, Url = "https://github.com/milax"},
-                                new SocialLink {Service = bitbucket, Url = "https://bitbucket.org/milax"}
+                                new SocialLink {Service = bitbucket, Url = "https://bitbucket.org/milax"},
+                                new SocialLink {Service = stackoverflow, Url = "http://stackoverflow.com/users/883631/eugene-kuzmin"}
                             }
                     };
                 var pavel = new Member
@@ -67,14 +72,15 @@ namespace Cph.Data
                         FullName = "Pavel Nezhencev",
                         Position = "Developer",
                         Email = "pavel.nezhencev@creuna.com",
-                        Photo = CreateLocalImage("http://goo.gl/hHleIB"),
+                        Photo = CreateLocalImage("http://goo.gl/fnXFFJ"),
                         SocialLinks = new[]
                             {
                                 new SocialLink {Service = twitter, Url = "https://twitter.com/pavelnezhencev"},
                                 new SocialLink {Service = google, Url = "https://plus.google.com/u/0/113934605918189869048/"},
                                 new SocialLink {Service = linkedin, Url = "http://www.linkedin.com/pub/pavel-nezhencev/4b/259/992"},
                                 new SocialLink {Service = github, Url = "https://github.com/whyleee"},
-                                new SocialLink {Service = bitbucket, Url = "https://bitbucket.org/whyleee"}
+                                new SocialLink {Service = bitbucket, Url = "https://bitbucket.org/whyleee"},
+                                new SocialLink {Service = stackoverflow, Url = "http://stackoverflow.com/users/544587/whyleee"}
                             }
                     };
                 var chris = new Member
@@ -101,7 +107,8 @@ namespace Cph.Data
                                 new SocialLink {Service = facebook, Url = "https://www.facebook.com/people/Dmitriy-Konovalov/100000525312380"},
                                 new SocialLink {Service = google, Url = "https://plus.google.com/u/0/115797605486221047446"},
                                 new SocialLink {Service = linkedin, Url = "http://www.linkedin.com/pub/dmitrij-konovalov/39/aa0/b56"},
-                                new SocialLink {Service = bitbucket, Url = "https://bitbucket.org/dmitriy_konovalov"}
+                                new SocialLink {Service = bitbucket, Url = "https://bitbucket.org/dmitriy_konovalov"},
+                                new SocialLink {Service = stackoverflow, Url = "http://stackoverflow.com/users/1872045/dmitriy-konovalov"}
                             }
                     };
                 var elena = new Member
@@ -114,7 +121,8 @@ namespace Cph.Data
                             {
                                 new SocialLink {Service = twitter, Url = "https://twitter.com/HelenPikaleva"},
                                 new SocialLink {Service = google, Url = "https://plus.google.com/u/0/101953517997612024656/"},
-                                new SocialLink {Service = github, Url = "https://github.com/ElenaP"}
+                                new SocialLink {Service = github, Url = "https://github.com/ElenaP"},
+
                             }
                     };
                 var dmitriym = new Member
@@ -140,7 +148,8 @@ namespace Cph.Data
                                 new SocialLink {Service = twitter, Url = "https://twitter.com/_FoC_"},
                                 new SocialLink {Service = google, Url = "https://plus.google.com/u/0/115983923736201689957/"},
                                 new SocialLink {Service = linkedin, Url = "http://www.linkedin.com/pub/nikolay-kush/34/aa/826"},
-                                new SocialLink {Service = github, Url = "https://github.com/FoC-"}
+                                new SocialLink {Service = github, Url = "https://github.com/FoC-"},
+                                new SocialLink {Service = stackoverflow, Url = "http://stackoverflow.com/users/1095657/foc"}
                             }
                     };
 
