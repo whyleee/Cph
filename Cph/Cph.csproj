@@ -202,6 +202,7 @@
     <Content Include="Views\Projects\Details.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Member.cshtml" />
     <Content Include="Views\Projects\Edit.cshtml" />
+    <None Include="Properties\PublishProfiles\Lab409.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
