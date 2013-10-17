@@ -12,5 +12,10 @@ namespace Cph.Controllers
         {
             return View();
         }
+
+        public ActionResult ReleaseNotes()
+        {
+            return View();
+        }
     }
 }

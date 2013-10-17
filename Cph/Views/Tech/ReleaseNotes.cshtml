@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Release notes";
+}
+
+<h1 class="page-header">Release notes</h1>
+<ul class="release-notes list-unstyled">
+    <li>
+        <h2>v0.1.1</h2>
+        <ul>
+            <li>@Html.ActionLink("Collaborative edit", "Edit", "Projects", new {name = "Hay"}, null) using locks and web-sockets</li>
+            <li>@Html.ActionLink("Release notes page", "ReleaseNotes")</li>
+        </ul>
+    </li>
+    <li>
+        <h2>v0.1</h2>
+        <ul>
+            <li>@Html.ActionLink("Team page", "Index", "Team") will alpha team members and social links.</li>
+            <li>@Html.ActionLink("Projects page", "Index", "Projects") with list of our projects.</li>
+            <li>@Html.ActionLink("Project details page", "Details", "Projects", new {name = "QualiWare"}, null) with info about the project and its devs.</li>
+            <li>@Html.ActionLink("Project edit page", "Edit", "Projects", new {name = "Nobia"}, null), where you can edit basic project info.</li>
+            <li>@Html.ActionLink("Live markdown editor", "Edit", "Projects", new {name = "Nobia"}, null) for project info.</li>
+        </ul>
+    </li>
+</ul>

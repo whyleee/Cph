@@ -32,7 +32,10 @@
             @RenderBody()
         </main>
         <footer class="container" role="contentinfo">
-            <hr>© 2013 Creuna CPH | Clone on <a href="https://github.com/whyleee/Cph">GitHub</a>
+            @{
+                var version = System.Diagnostics.FileVersionInfo.GetVersionInfo(typeof (Cph.MvcApplication).Assembly.Location).FileVersion;
+            }
+            <hr>@Html.ActionLink("v" + version, "ReleaseNotes", "Tech") © 2013 Creuna CPH | Clone on <a href="https://github.com/whyleee/Cph">GitHub</a>
         </footer>
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/js")

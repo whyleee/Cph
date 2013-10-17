@@ -17,6 +17,7 @@ a:hover [class*=" icon-"] {
 }
 
 .page-header {
+    margin-top: 20px;
     margin-bottom: 40px;
 }
 
@@ -52,4 +53,9 @@ a:hover [class*=" icon-"] {
 /* Project page */
 .page-header-project {
     margin-bottom: 0;
+}
+
+/* Release notes page */
+.release-notes ul {
+    list-style: disc;
 }
