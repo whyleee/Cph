@@ -4,8 +4,11 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Cph.Aids;
 using Cph.Data;
+using Cph.Hubs;
 using Cph.Models;
+using Microsoft.AspNet.SignalR;
 
 namespace Cph.Controllers
 {
@@ -24,7 +27,7 @@ namespace Cph.Controllers
 
         public ActionResult Details(string name)
         {
-            var project = db.Projects.FirstOrDefault(p => p.Name.ToLower() == name.ToLower());
+            var project = GetProject(name);
 
             if (project == null)
             {
@@ -36,7 +39,7 @@ namespace Cph.Controllers
 
         public ActionResult Edit(string name)
         {
-            var project = db.Projects.FirstOrDefault(p => p.Name.ToLower() == name.ToLower());
+            var project = GetProject(name);
 
             if (project == null)
             {
@@ -44,6 +47,18 @@ namespace Cph.Controllers
             }
 
             return View(project);
+        }
+
+        public ActionResult EditForm(string name)
+        {
+            var project = GetProject(name);
+
+            if (project == null)
+            {
+                return HttpNotFound();
+            }
+
+            return PartialView(project);
         }
 
         [HttpPost]
@@ -54,10 +69,20 @@ namespace Cph.Controllers
             {
                 db.Entry(project).State = EntityState.Modified;
                 db.SaveChanges();
+
+                // update other clients
+                var @lockHub = GlobalHost.ConnectionManager.GetHubContext<LockHub>();
+                @lockHub.Clients.All.update(project.GetEntityId());
+
                 return RedirectToAction("Details", new {name = project.Name});
             }
 
             return View(project);
+        }
+
+        private Project GetProject(string name)
+        {
+            return db.Projects.FirstOrDefault(p => p.Name.ToLower() == name.ToLower());
         }
 
         protected override void Dispose(bool disposing)

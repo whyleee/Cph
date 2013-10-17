@@ -13,9 +13,8 @@ namespace Cph.Aids
     {
         public static IHtmlString MenuItem(this HtmlHelper html, string linkText, [AspMvcAction] string actionName, [AspMvcController] string controllerName)
         {
-            var currentAction = html.ViewContext.RouteData.GetRequiredString("action");
             var currentController = html.ViewContext.RouteData.GetRequiredString("controller");
-            var active = /*actionName == currentAction &&*/ controllerName == currentController;
+            var active = controllerName == currentController;
 
             var li = active ? "<li class=\"active\">" : "<li>";
             return new HtmlString(li + html.ActionLink(linkText, actionName, controllerName) + "</li>");
@@ -27,6 +26,18 @@ namespace Cph.Aids
             if (serviceName == "google") serviceName = "google-plus";
             if (serviceName == "stackoverflow") return "icon-stackexchange";
             return "icon-" + serviceName + "-sign";
+        }
+
+        public static string GetEntityId(this object entity)
+        {
+            var typeName = entity.GetType().Name;
+
+            if (typeName.Contains('_'))
+            {
+                typeName = typeName.Substring(0, typeName.IndexOf('_'));
+            }
+
+            return typeName + '_' + entity.GetType().GetProperty("Id").GetValue(entity);
         }
     }
 }

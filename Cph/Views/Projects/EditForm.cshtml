@@ -1,0 +1,64 @@
+﻿@model Cph.Data.Project
+<div class="col-md-6 col-sm-6 col-xs-12">
+    @using (Html.BeginForm("Edit", "Projects", new {name = Model.Name}, FormMethod.Post, new {@class = "form-horizontal"}))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            @*<legend>@Model.Name</legend>*@
+            
+            @Html.HiddenFor(m => m.Id)
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name, new {@class = "col-md-2 control-label"})
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Name, new {@class = "form-control"})
+                    @Html.ValidationMessageFor(m => m.Name, null, new {@class = "help-block"})
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Description, new {@class = "col-md-2 control-label"})
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.Description, new {@class = "form-control", style = "resize: none;", rows = "2"})
+                    @Html.ValidationMessageFor(m => m.Description, null, new {@class = "help-block"})
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Started, new {@class = "col-md-2 control-label"})
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Started, "{0:dd/MM/yyyy}", new {@class = "form-control datepicker"})
+                    @Html.ValidationMessageFor(m => m.Started, null, new {@class = "help-block"})
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Ended, new {@class = "col-md-2 control-label"})
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Ended, "{0:dd/MM/yyyy}", new {@class = "form-control datepicker"})
+                    @Html.ValidationMessageFor(m => m.Ended, null, new {@class = "help-block"})
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.TopImage, new {@class = "col-md-2 control-label"})
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.TopImage, new {type = "url", @class = "form-control"})
+                    @Html.ValidationMessageFor(m => m.TopImage, null, new {@class = "help-block"})
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Info, new {@class = "col-md-2 control-label"})
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.Info, new {@class = "form-control markdown", style = "resize: none;", rows = "10"})
+                    @Html.ValidationMessageFor(m => m.Info, null, new {@class = "help-block"})
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </div>
+        </fieldset>
+    }
+</div>
+<div class="col-md-6 col-sm-6 col-xs-12 markdown-preview">
+</div>
