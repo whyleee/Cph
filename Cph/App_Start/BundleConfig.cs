@@ -19,6 +19,7 @@ namespace Cph
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                 "~/js/jquery.unobtrusive*",
                 "~/js/jquery.validate*",
+                "~/js/jquery.signalR-{version}.js",
                 "~/js/bootstrap.js",
                 "~/js/bootstrap-datepicker.js",
                 "~/js/Markdown.*",

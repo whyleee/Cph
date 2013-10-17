@@ -1,6 +1,6 @@
 ﻿var cph = cph || {};
 
-cph.init = function($) {
+cph.init = function() {
     // datepicker
     $('.datepicker').datepicker({
         format: 'dd/mm/yyyy'
@@ -38,6 +38,45 @@ cph.init = function($) {
 cph.refreshValidation = function($form) {
     $.validator.unobtrusive.parse($form);
 };
-(function ($) {
-    cph.init($);
-})(jQuery);
+cph.Locker = function(lockEntityId, opts) {
+    var lock = $.connection.lockHub;
+    lock.client.unlock = function(entityId) {
+        if (entityId == lockEntityId) {
+            setFormEnabled(true);
+        }
+    };
+    lock.client.lock = function(entityId) {
+        if (entityId == lockEntityId) {
+            setFormEnabled(false);
+        }
+    };
+    lock.client.update = function(entityId) {
+        if (entityId == lockEntityId) {
+            $.get(opts.ajaxUrl, function (html) {
+                var wasDisabled = !isFormEnabled();
+                        
+                // update html
+                opts.$editBox.html(html);
+                if (wasDisabled) setFormEnabled(false);
+                        
+                // refresh stuff
+                cph.init(jQuery);
+                cph.refreshValidation(opts.$editBox);
+            });
+        }
+    };
+    $.connection.hub.start().done(function() {
+        lock.server.lock(lockEntityId).done(function(ok) {
+            if (!ok) setFormEnabled(false);
+        });
+    });
+    function setFormEnabled(enabled) {
+        opts.$editBox.find(':input, textarea').attr('disabled', !enabled);
+    }
+    function isFormEnabled() {
+        opts.$editBox.find(':input:first').is(':enabled');
+    }
+};
+$(function() {
+    cph.init();
+});
