@@ -72,9 +72,19 @@ cph.Locker = function(lockEntityId, opts) {
     });
     function setFormEnabled(enabled) {
         opts.$editBox.find(':input, textarea').attr('disabled', !enabled);
+        setLockWarning(!enabled);
     }
     function isFormEnabled() {
         opts.$editBox.find(':input:first').is(':enabled');
+    }
+    function setLockWarning(show) {
+        if (show) {
+            opts.$editBox.prepend('<div class="lock-warning col-md-12"><div class="alert alert-danger">Somebody else is working on this page now. Please wait...</div></div>');
+            $('.page-header').css('margin-bottom', '20px');
+        } else {
+            opts.$editBox.find('.lock-warning').remove();
+            $('.page-header').attr('style', '');
+        }
     }
 };
 $(function() {
