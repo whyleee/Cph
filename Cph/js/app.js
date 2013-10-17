@@ -1,11 +1,6 @@
 ﻿var cph = cph || {};
 
 cph.init = function() {
-    // datepicker
-    $('.datepicker').datepicker({
-        format: 'dd/mm/yyyy'
-    });
-
     // validation
     $.validator.setDefaults({
         highlight: function(element) {
@@ -30,6 +25,11 @@ cph.init = function() {
         return moment(value, 'DD/MM/YYYY').isValid();
     });
 
+    // datepicker
+    $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy'
+    });
+        
     // markdown editor
     $('.markdown').pagedownBootstrap({
         preview: '.markdown-preview'
@@ -38,6 +38,8 @@ cph.init = function() {
 cph.refreshValidation = function($form) {
     $.validator.unobtrusive.parse($form);
 };
+
+// Locker (collaborative edit)
 cph.Locker = function(lockEntityId, opts) {
     var lock = $.connection.lockHub;
     lock.client.unlock = function(entityId) {
@@ -87,6 +89,5 @@ cph.Locker = function(lockEntityId, opts) {
         }
     }
 };
-$(function() {
-    cph.init();
-});
+
+cph.init();

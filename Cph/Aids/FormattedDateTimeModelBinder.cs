@@ -14,7 +14,7 @@ namespace Cph.Aids
             var displayFormat = bindingContext.ModelMetadata.DisplayFormatString;
             var value = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
 
-            if (!string.IsNullOrEmpty(displayFormat) && value != null)
+            if (!string.IsNullOrEmpty(displayFormat) && value != null && !string.IsNullOrEmpty(value.AttemptedValue))
             {
                 DateTime date;
                 displayFormat = displayFormat.Replace("{0:", "").Replace("}", "");
