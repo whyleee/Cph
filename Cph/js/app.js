@@ -32,7 +32,8 @@ cph.init = function() {
         
     // markdown editor
     $('.markdown').pagedownBootstrap({
-        preview: '.markdown-preview'
+        preview: '.markdown-preview',
+        sanitize: false
     });
 };
 cph.refreshValidation = function($form) {

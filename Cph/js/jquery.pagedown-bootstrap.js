@@ -22,77 +22,72 @@
  * 
  */
 
-(function( $ ){
+(function($) {
 
-	$.fn.pagedownBootstrap = function( options ) {  
+    $.fn.pagedownBootstrap = function(options) {
 
-		// Default settings
-	    var settings = $.extend({
-	        'preview': null,
-			'sanatize'				: true,
-			'help'						: null,
-			'hooks'						: Array()
-		}, options);
+        // Default settings
+        var settings = $.extend({
+            'preview': null,
+            'sanitize': true,
+            'help': null,
+            'hooks': Array()
+        }, options);
 
-		return this.each(function() {   
+        return this.each(function() {
 
-			//Setup converter   
-			var converter = null;
-			if(settings.sanatize)
-			{
-				converter = Markdown.getSanitizingConverter();
-			} else {
-				converter = new Markdown.Converter()
-			}
+            //Setup converter   
+            var converter = null;
+            if (settings.sanitize) {
+                converter = Markdown.getSanitizingConverter();
+            } else {
+                converter = new Markdown.Converter()
+            }
 
-			//Register hooks
-			for(var i in settings.hooks)
-			{
-				var hook = settings.hooks[i];
-				if(typeof hook !== 'object' || typeof hook.event === 'underfined' 
-						|| typeof hook.callback !== 'function')
-				{
-					//A bad hook object was given
-					continue;
-				}
+            //Register hooks
+            for (var i in settings.hooks) {
+                var hook = settings.hooks[i];
+                if (typeof hook !== 'object' || typeof hook.event === 'underfined'
+                    || typeof hook.callback !== 'function') {
+                    //A bad hook object was given
+                    continue;
+                }
 
-				converter.hooks.chain(hook.event, hook.callback);
+                converter.hooks.chain(hook.event, hook.callback);
 
-			}
+            }
 
-			//Try to find a valid id for this element
-			var id = "wmd-input";
-			var idAppend = 0;
-			while($("#"+id+"-"+idAppend.toString()).length > 0)
-			{
-				idAppend++;
-			}
+            //Try to find a valid id for this element
+            var id = "wmd-input";
+            var idAppend = 0;
+            while ($("#" + id + "-" + idAppend.toString()).length > 0) {
+                idAppend++;
+            }
 
-			//Assign the choosen id to the element
-			$(this).attr('id', id+"-"+idAppend.toString());
+            //Assign the choosen id to the element
+            $(this).attr('id', id + "-" + idAppend.toString());
 
-			//Wrap the element with the needed html
-			$(this).wrap('<div class="wmd-panel" />');
-			$(this).before('<div id="wmd-button-bar-' + idAppend + '" class="wmd-button-bar" />');
-		    if (settings.preview) {
-		        $(settings.preview).html('<div id="wmd-preview-' + idAppend + '" class="wmd-preview" />');
-		    } else {
-		        $(this).after('<div id="wmd-preview-' + idAppend + '" class="wmd-preview" />');
-		    }
-			$(this).addClass('wmd-input');
+            //Wrap the element with the needed html
+            $(this).wrap('<div class="wmd-panel" />');
+            $(this).before('<div id="wmd-button-bar-' + idAppend + '" class="wmd-button-bar" />');
+            if (settings.preview) {
+                $(settings.preview).html('<div id="wmd-preview-' + idAppend + '" class="wmd-preview" />');
+            } else {
+                $(this).after('<div id="wmd-preview-' + idAppend + '" class="wmd-preview" />');
+            }
+            $(this).addClass('wmd-input');
 
-			//Setup help function
-			help = null;
-			if($.isFunction(settings.help))
-			{
-				help = { handler: settings.help };
-			}
+            //Setup help function
+            help = null;
+            if ($.isFunction(settings.help)) {
+                help = { handler: settings.help };
+            }
 
-			//Setup editor
-			var editor = new Markdown.Editor(converter, "-"+idAppend.toString(), help);
-      editor.run();
+            //Setup editor
+            var editor = new Markdown.Editor(converter, "-" + idAppend.toString(), help);
+            editor.run();
 
-		});
+        });
 
-	};
-})( jQuery );
+    };
+})(jQuery);
