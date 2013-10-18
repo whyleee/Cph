@@ -10,6 +10,6 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Product version
-[assembly: AssemblyVersion("0.1.1")]
-[assembly: AssemblyFileVersion("0.1.1")]
-[assembly: AssemblyInformationalVersion("v0.1.1, with collaborative edit using locks")]
+[assembly: AssemblyVersion("0.1.1.1")]
+[assembly: AssemblyFileVersion("0.1.1.1")]
+[assembly: AssemblyInformationalVersion("v0.1.1.1, with collaborative edit using locks")]
